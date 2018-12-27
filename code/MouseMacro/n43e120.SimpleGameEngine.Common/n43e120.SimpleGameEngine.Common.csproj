@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\lib\n43e120.Interop.WinAPI\n43e120.Interop.WinAPI.csproj" />
+  </ItemGroup>
+
+</Project>

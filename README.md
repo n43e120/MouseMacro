@@ -1,13 +1,31 @@
-# MouseMacro
-a general purpose Mouse Macro e.g. FPS game created by [me](https://github.com/n43e120/blog)
+# Mouse Macro
+Versatile, configurable, easy reprogrammable macro application for both mouse and keyboard. it can
+
+* simulate repetitively mouse clicks particular useful for MMORPG game (like WoW, ARK and ATLAS). release your chore of endlessly clicks to attack.
+* simulate to compensate firearm recoil in FPS game Squad, so your gunfire is easy, stable and accurate.
+* and other mods.
+
+## Screenshoot
+
+![fig 1](screenshoot.PNG)
+
+## Requirement
+
+* Window 10
+* .Net Framework 4.7.2
 
 ## Download 
+
 you can download compiled executable from my [baidu Cloud Disk](https://pan.baidu.com/s/1tUXBKcouEG7hbYGleozDmA)
 
-## usage
-* download **MouseMarco_20180423build.zip**
+Last version 2018/12/27
+
+## Usage
+* download the zip file
 * unzip
-* open **WinFormMouseMarcoFPSRecoilCompensator.exe**
+* open the only .exe file ***n43e120.MouseMacro.exe***
+
+## Squad Mod 
 
 > Press **[F5]** to switch to AK-74 Auto mode for FPS video game Squad.
 > this is out-of-box example of demostration
@@ -22,8 +40,8 @@ you can download compiled executable from my [baidu Cloud Disk](https://pan.baid
 > and then click the **Left Mouse Button** item to open a dropdown menu.
 > in the dropdown menu you can choose one of many other gun fire modes you want, there are many of them.
 
-## Mod Guide 
-* Demo code is just rough tuned for almost all guns in game Squad version 10.2.
-* you can change the code in **class RecoilCompensatorMouseRunner** in **file SquadRecoilCompensator.cs** to tweak the recoil strength and/or add new gun mode by adding a new **static method** in the class for future version of the game. 
-* you also can create new class, even build variant of entire system to fit to other FPS game or other purposes.
+## DIY Mod Guide 
+* write a new macro can not be more easy. just write a static C# class and static method and attach [MarcoAction] attribute to your method.
+* If you create your own put your dll or exe file into **/mod** folder and there you go.
+* it is designed to open-source, so that users can make variant of system of their own to fit to other FPS game, other purposes, etc.
 
