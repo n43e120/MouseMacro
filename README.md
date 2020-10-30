@@ -1,11 +1,15 @@
 # Mouse Macro
-Versatile, configurable, easy reprogrammable macro application for both mouse and keyboard. it can
+a mouse and keyboard action automation desktop app which simulates mouse clicks. It can release your hand and finger from endlessly clicking. Some useful occasions e.g.
 
-* simulate repetitively mouse clicks particular useful for MMORPG game (like WoW, ARK and ATLAS). release your chore of endlessly clicks to attack.
-* simulate to compensate firearm recoil in FPS game Squad, so your gunfire is easy, stable and accurate.
-* and other mods.
+* RPG game character attacks.
 
-## Screenshoot
+* FPS quick firing. also it can simulate to compensate recoil
+
+* panic buying train ticket/biding on websites
+
+Configurable and modular architecture can be reprogram to any requirement and occasion.
+
+## Screenshot
 
 ![fig 1](screenshoot.PNG)
 
@@ -16,19 +20,19 @@ Versatile, configurable, easy reprogrammable macro application for both mouse an
 
 ## Download 
 
-you can download compiled executable from my [baidu Cloud Disk](https://pan.baidu.com/s/1tUXBKcouEG7hbYGleozDmA)
+you can download from release.
 
-Last version 2018/12/27
+
 
 ## Usage
 * download the zip file
 * unzip
-* open the only .exe file ***n43e120.MouseMacro.exe***
+* run ***n43e120.MouseMacro.exe***
 
 ## Squad Mod 
 
 > Press **[F5]** to switch to AK-74 Auto mode for FPS video game Squad.
-> this is out-of-box example of demostration
+> this is out-of-box example of demonstration
 > now click left mouse button, it should be move down automatically as you hold down LMB.
 > **[F6]** for M4 burst mode for FPS video game Squad.
 > **[F7]** for pistol mode for FPS video game Squad.
@@ -45,3 +49,7 @@ Last version 2018/12/27
 * If you create your own put your dll or exe file into **/mod** folder and there you go.
 * it is designed to open-source, so that users can make variant of system of their own to fit to other FPS game, other purposes, etc.
 
+## Update History
+> 2020/10/30 update fixed a random crash bug which is caused by GC collecting a HOOKPROC callback delegate for receiving mouse/keyboard input event defined in local function scope. Also it fixed a mistype bug in function LEFTUP() which should be MOUSEEVENTF_LEFTUP not DOWN.
+
+> 2018/12/27 first submit version. download from my [baidu Cloud Disk](https://pan.baidu.com/s/1tUXBKcouEG7hbYGleozDmA)

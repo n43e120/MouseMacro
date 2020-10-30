@@ -17,10 +17,15 @@ namespace n43e120.SimpleGameEngine.User32API
         {
             if (hHookProc == IntPtr.Zero)
             {
-                var hookproc = new User32.HOOKPROC(HookProc);
+                //var hookproc = new User32.HOOKPROC(HookProc);
+                //hHookProc = User32.SetWindowsHookEx(
+                //    User32.WH.WH_MOUSE_LL,
+                //    hookproc,
+                //    User32.GetModuleHandle(System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName),
+                //    0U);
                 hHookProc = User32.SetWindowsHookEx(
                     User32.WH.WH_MOUSE_LL,
-                    hookproc,
+                    HookProc,
                     User32.GetModuleHandle(System.Diagnostics.Process.GetCurrentProcess().MainModule.ModuleName),
                     0U);
                 if (hHookProc == IntPtr.Zero)

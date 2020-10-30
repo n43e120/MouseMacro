@@ -156,11 +156,16 @@ namespace n43e120.MouseMacro
         public const int WM_SYSCOMMAND = 0x0112;
         public const int SC_MOVE = 0xF010;
         public const int HTCAPTION = 0x0002;
+        private void pictureBox2_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.pictureBox2.BackColor = SystemColors.Control;
+        }
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
+            this.pictureBox2.BackColor = Color.Red;
             //拖动窗体
-            ReleaseCapture();
-            SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
+            //ReleaseCapture();
+            //SendMessage(this.Handle, WM_SYSCOMMAND, SC_MOVE + HTCAPTION, 0);
         }
         private void FormMain_MouseDown(object sender, MouseEventArgs e)
         {

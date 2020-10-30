@@ -274,6 +274,7 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
             get { return _target; }
             set
             {
+                this.Actor?.Stop();
                 if (value == _target)
                 {
                     return;
@@ -504,7 +505,7 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
 
         private int _interval = 100;
         [Description("how long between two clicks")]
-        [DefaultValue(170)]
+        [DefaultValue(100)]
         public int Interval
         {
             get { return _interval; }
@@ -530,40 +531,41 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
 
         public void RepetitivelyClickLMB()
         {
-            do
+            while (hasTriggered)
             {
                 LEFTDOWN();
+                //Sleep(70);
                 LEFTUP();
                 Sleep(_interval);
-            } while (true);
+            };
         }
         public void RepetitivelyClickRMB()
         {
-            do
+            while (hasTriggered)
             {
                 RIGHTDOWN();
                 RIGHTUP();
                 Sleep(_interval);
-            } while (true);
+            }
         }
         public void RepetitivelyClickMMB()
         {
-            do
+            while (hasTriggered)
             {
                 MIDDLEDOWN();
                 MIDDLEUP();
                 Sleep(_interval);
-            } while (true);
+            }
         }
         public void RepetitivelyClickKeyboard()
         {
             var bytK = (byte)((int)_target & 0xffff);
-            do
+            while (hasTriggered)
             {
                 keybd_event(bytK, 0, 0, 0);
                 keybd_event(bytK, 0, 0x2, 0);
                 Sleep(_interval);
-            } while (true);
+            }
         }
         public void RepetitivelyClickKeyboard_EXTENDEDKEY()
         {
@@ -575,7 +577,7 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
                 keybd_event(bytVK, 0x45, KEYEVENTF_KEYUP, 0);
                 Sleep(v);
             }
-            do
+            while (hasTriggered)
             {
                 keybd_event(bytVK, 0x45, KEYEVENTF_EXTENDEDKEY, 0);
                 keybd_event(bytVK, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
@@ -583,7 +585,7 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
                 keybd_event(bytVK, 0x45, 0, 0);
                 keybd_event(bytVK, 0x45, KEYEVENTF_KEYUP, 0);
                 Sleep(v);
-            } while (true);
+            }
         }
         public RepetitiveClickerMacroController()
         {
@@ -597,35 +599,35 @@ namespace n43e120.MouseMacro.Mod.RepetitiveClicker
             actualProcessMethod?.Invoke(msg);
             base.WndProc(msg);
         }
-        private bool hasTriggerKeyDown;
+        private bool hasTriggered; //make sure that mousedown event must be paired with mouseup
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         void INLINE_TryStart()
         {
-            if (!hasTriggerKeyDown)
+            if (!hasTriggered)
             {
-                hasTriggerKeyDown = true;
+                hasTriggered = true;
                 Actor.Start();
             }
             else
             {
                 if (NumLock)
                 {
-                    Actor.Stop();
-                    hasTriggerKeyDown = false;
+                    //Actor.Stop();
+                    hasTriggered = false; //signaling to stop rather than call thread.interrupt() which may cause mousedown mouseup can not be paired
                 }
             }
         }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         void INLINE_TryStop()
         {
-            if (hasTriggerKeyDown)
+            if (hasTriggered)
             {
                 if (NumLock)
                 {
                     return;
                 }
-                Actor.Stop();
-                hasTriggerKeyDown = false;
+                //Actor.Stop();
+                hasTriggered = false;
             }
         }
         public unsafe void WndProc_KeyboardKey(IntPtr msg)

@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RecoilCompensatorMouseRunner12.cs" />
+    <Compile Include="RecoilCompensatorMouseRunner10.cs" />
     <Compile Include="SquadRecoilCompensator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

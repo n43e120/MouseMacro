@@ -45,6 +45,11 @@ namespace n43e120.MouseMacro
         }
         static void Initialize()
         {
+            //if (!GC.TryStartNoGCRegion(1000000))
+            //{
+            //    MessageBox.Show("can not disable garbage collection");
+            //}
+
             game1 = new n43e120.SimpleGameEngine.User32API.GameEngineViaUser32API();
             //_MacroControllers.Add(new DefaultMacroController());
             

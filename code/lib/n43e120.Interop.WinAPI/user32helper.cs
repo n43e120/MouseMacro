@@ -48,7 +48,7 @@ namespace n43e120.Interop.WinAPI
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void LEFTUP()
         {
-            mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
